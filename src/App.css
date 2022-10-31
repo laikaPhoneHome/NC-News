@@ -12,4 +12,22 @@
   display:flex;
   flex-wrap: wrap;
 }
+.header{
+  border: dotted;
+}
+.header-top{
+  display:flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.header-bottom{
+  display:flex;
+  border: dotted;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+/* .title{
+  
+} */
 
