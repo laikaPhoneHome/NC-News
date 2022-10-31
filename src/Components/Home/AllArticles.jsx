@@ -10,15 +10,15 @@ export const AllArticles = () => {
     useEffect(() => {
         setIsLoading(true);
         API.fetchArticles()
-        .then(({articles}) => {
+        .then(({articles: {articles, total_count}}) => {
             setArticles(articles);
             setIsLoading(false);
-            console.log(articles);
         })
         .catch((err) => {
             setErr(err)
         })
     },[])
+
     
     if(isLoading) return <h2>Loading ...</h2>
     else
@@ -26,7 +26,7 @@ export const AllArticles = () => {
     return (
     <ul>
         {
-        articles.map(a => {
+        articles.map(article => {
             return <ArticlesCard article={article}/>
     })}
     </ul>

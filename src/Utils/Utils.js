@@ -10,3 +10,21 @@ exports.createSample = (str) => {
     })
     return sampleArr.join(' ');
 }
+exports.convertTimestampToDate = (created_atJS) => {
+    const stamp = new Date(created_atJS);
+
+    const day = stamp.getDate()
+    const month = stamp.getMonth()
+    const year = stamp.getFullYear()
+    let min = stamp.getMinutes()
+    let hour = stamp.getHours()
+
+    hour += `:${min}`;
+
+    return {
+        created:{ 
+        date:`${day}-${month}-${year}`, 
+        time:`${hour}`
+        }
+    }
+  };
