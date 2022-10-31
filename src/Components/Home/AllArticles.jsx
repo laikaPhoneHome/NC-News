@@ -18,16 +18,15 @@ export const AllArticles = () => {
             setErr(err)
         })
     },[])
-
     
     if(isLoading) return <h2>Loading ...</h2>
     else
     if(err) return <h2>{err}</h2>
     return (
-    <ul>
+    <ul className="all-articles">
         {
         articles.map(article => {
-            return <ArticlesCard article={article}/>
+            return <ArticlesCard className="article-card" key={article.article_id} article={article}/>
     })}
     </ul>
     )
