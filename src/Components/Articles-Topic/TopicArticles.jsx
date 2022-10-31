@@ -1,22 +1,25 @@
 import { Header } from "../Header"
-import { fetchArticles } from "../../Api";
-import { useEffect } from "react";
+import { ArticlesCard } from "../Cards/ArticlesCard";
+import { useEffect, useState } from "react";
+import * as API from '../../Api'
 
 
-export const TopicArticles = ({topic_id}) => {
+
+export const TopicArticles = ({topic}) => {
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
-    
+    const [err, setErr] = useState(null);
 
     useEffect(() => {
         setIsLoading(true);
-        API.fetchArticles(topic_id)
-        .then(({articles: {articles, total_count}}) => {
-            setArticles(articles);
+        API.fetchArticles(topic)
+        .then(({data: articles}) => {
+            setArticles(articles.articles.articles);
             setIsLoading(false);
         })
-    })
+    },[topic])
+    console.log(articles)
+    
 
     if(isLoading) return <h2>Loading ...</h2>
     else
