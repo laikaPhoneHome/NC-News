@@ -13,3 +13,9 @@ export const fetchArticles = (order, topic) => {
         return data;
     })
 }
+export const fetchTopics = () => {
+    return NewsAPI.get(`/topics`)
+    .then(({data}) => {
+        return data;
+    })
+}
