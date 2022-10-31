@@ -25,6 +25,21 @@
   border: dotted;
   justify-content: space-between;
   flex-direction: row;
+  box-sizing: content-box;
+  align-items: center;
+}
+.topic-list{
+  display:flex;
+  justify-content: flex-start;
+  margin: 0;
+}
+.topic{
+  margin-right: 1vw;
+}
+.article-search{
+  padding: 0;
+  height: 2vw;
+  margin-right: 3vw;
 }
 
 /* .title{
