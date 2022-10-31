@@ -1,3 +1,9 @@
+import { AllArticles } from "./AllArticles"
+
 export const Home = () => {
-    return <></>
+    return (
+    <div>
+        <AllArticles />
+    </div>
+    )
 }
