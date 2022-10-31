@@ -4,10 +4,10 @@ const NewsAPI = axios.create({
     baseURL: 'https://nc-news-laika.herokuapp.com/api'
 })
 
-export const fetchArticles = (order, topic) => {
+export const fetchArticles = (topic, order) => {
     if(order && topic)return NewsAPI.get(`/articles${order}${topic}`)
     if(order)return NewsAPI.get(`/articles${order}`)
-    if(topic)return NewsAPI.get(`/articles${topic}`)
+    if(topic)return NewsAPI.get(`/articles?topic=${topic}`)
     if(!order && !topic)return NewsAPI.get(`/articles`)
     .then(({data}) => {
         return data;
