@@ -25,3 +25,9 @@ export const fetchArticleById = (article_id) => {
         return data;
     })
 }
+export const fetchUserByUsername = (username) => {
+    return NewsAPI.get(`/users/${username}`)
+    .then(({data}) => {
+        return data;
+    })
+}
