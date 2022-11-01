@@ -39,7 +39,9 @@ export const Header = () => {
                 <div>
                     <SelectedOption value={chosenTopic} />
                     <BurgerMenu>
-                        <Option value={topic} />
+                        <Link to={`/articles/${slug}`}>
+                            <Option value={topic} />
+                        </Link>
                     </BurgerMenu>
                 </div>
                 )
