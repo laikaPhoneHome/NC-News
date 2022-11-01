@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { CurrentUser } from "./Cards/CurrentUser";
 import * as API from '../Api';
+import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
+import { SelectedOption } from "./BurgerMenu/SelectedOption";
+import { Option } from "./BurgerMenu/Option";
 
 
 export const Header = () => {
@@ -25,12 +28,20 @@ export const Header = () => {
         </section>
         <section className="header-bottom">
             <ul className="topic-list">
-            {topics.map(topic => {
+            {topics.map((topic, i) => {
                 const { slug, description } = topic;
-                return (
+                i < 6 ? (
                 <Link to={`/articles/${slug}`}>
                     <h3 className="topic" key={slug}>{slug}<span>{description}</span></h3>
                 </Link>
+                )
+                : (
+                <div>
+                    <SelectedOption value={chosenTopic} />
+                    <BurgerMenu>
+                        <Option value={topic} />
+                    </BurgerMenu>
+                </div>
                 )
             })}
             <h3>|</h3>
