@@ -23,7 +23,7 @@ export const ArticleLandling = () => {
     return (
     <div>
         <Header />
-        <SingleArticle article={article} />
+        {isLoading ? <h2>Loading ...</h2> :<SingleArticle article={article} />}
     </div>
     )
 }
