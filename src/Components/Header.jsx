@@ -22,9 +22,14 @@ export const Header = () => {
     },[])
 
     const handleSearch = (event) => {
-        const newInput = event.target.value;
-        setInput(newInput);
-        console.log(event)
+        if(event.key === 'Enter' && input !== '') handleSubmit(input);
+        else{
+            const newInput = event.target.value;
+            setInput(newInput);
+        }
+    }
+    const handleSubmit = (input) => {
+        console.log(`searching for ${input}`)
     }
 
     return (
