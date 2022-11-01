@@ -19,3 +19,9 @@ export const fetchTopics = () => {
         return data;
     })
 }
+export const fetchArticleById = (article_id) => {
+    return NewsAPI.get(`/aricles/${article_id}`)
+    .then(({data}) => {
+        return data;
+    })
+}
