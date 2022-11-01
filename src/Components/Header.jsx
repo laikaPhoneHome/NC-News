@@ -23,7 +23,9 @@ export const Header = () => {
     return (
     <div className="header">
         <section className="header-top">
-        <h1 className="title">NC News</h1>
+            <Link to="/">
+                <h1 className="title">NC Leaks</h1>
+            </Link>
         <CurrentUser />
         </section>
         <section className="header-bottom">

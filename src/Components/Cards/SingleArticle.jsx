@@ -18,7 +18,7 @@ export const SingleArticle = ({article}) => {
     const {created: {date, time}} = timeStamp;
 
     return (
-        <article class="article-card">
+        <article class="single-article">
             <AuthorCard user={user}/>
             <h2>{title}</h2>
             <p>{topic}</p>

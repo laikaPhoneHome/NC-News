@@ -116,21 +116,21 @@ li{
   overflow: hidden; 
   border-radius: 50%;
 }
-.article-card{
+.single-article{
   width: 75%;
   margin:auto;
   align-items: center;
   text-align: right;
   text-indent: 4vw;
-  margin-top: 5vw;
+  margin-top: 0%;
   height: 100%;
   padding: 3vw;
 }
-.article-card p {
+.single-article p {
   text-align: left;
   text-indent: 0;
 }
-.article-card h2{
+.single-article h2{
   text-align: center;
 }
 
