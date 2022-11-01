@@ -20,7 +20,7 @@ export const fetchTopics = () => {
     })
 }
 export const fetchArticleById = (article_id) => {
-    return NewsAPI.get(`/aricles/${article_id}`)
+    return NewsAPI.get(`/articles/${article_id}`)
     .then(({data}) => {
         return data;
     })

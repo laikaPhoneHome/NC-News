@@ -34,8 +34,10 @@ li{
   list-style: none;
 }
 .article-card{
+  padding-top: 1.5vw;
   border-style: none;
   width:27vw;
+  height:35vh;
   background: rgb(228, 228, 228);
   margin-left: 3vw;
   margin-bottom: 3vw;

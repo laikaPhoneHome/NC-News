@@ -11,7 +11,7 @@ export const ArticleLandling = () => {
 
     const {article_id} = useParams();
 
-    useEffect(() => {\
+    useEffect(() => {
         setIsLoading(true)
         API.fetchArticleById(article_id)
         .then(({article}) => {
