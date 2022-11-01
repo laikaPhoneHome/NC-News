@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/articles/:topic' element={<TopicsLanding />}/>
-          <Route path='/home' element={<Home />}/>
+          <Route path='/' element={<Home />}/>
         </Routes>
       </BrowserRouter>
     </div>
