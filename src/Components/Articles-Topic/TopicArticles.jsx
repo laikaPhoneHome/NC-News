@@ -1,13 +1,4 @@
 import { Header } from "../Header"
-<<<<<<< HEAD
-
-export const TopicArticles = () => {
-    return (
-    <div>
-        <Header />
-        <
-    </div>
-=======
 import { ArticlesCard } from "../Cards/ArticlesCard";
 import { useEffect, useState } from "react";
 import * as API from '../../Api'
@@ -41,6 +32,5 @@ export const TopicArticles = ({topic}) => {
             return <ArticlesCard className="article-card" key={article.article_id} article={article}/>
     })}
     </ul>
->>>>>>> 7c1b23215db433fd12f53945f148afdbb87df3d7
     )
 }

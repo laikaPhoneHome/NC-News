@@ -10,6 +10,7 @@ import { Option } from "./BurgerMenu/Option";
 export const Header = () => {
     const [topics, setTopics] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [input, setInput] = useState('');
 
     useEffect(() => {
         setIsLoading(true)
@@ -19,6 +20,12 @@ export const Header = () => {
             setIsLoading(false);
         })
     },[])
+
+    const handleSearch = (event) => {
+        const newInput = event.target.value;
+        setInput(newInput);
+        console.log(event)
+    }
 
     return (
     <div className="header">
@@ -48,7 +55,7 @@ export const Header = () => {
             })}
             <h3 className="divider">|</h3>
             </ul>
-            <input className="article-search" placeholder="Search" type="text"/>
+            <input onKeyDown={handleSearch} onChange={handleSearch} className="article-search" placeholder="Search" type="text"/>
         </section>
     </div>
     
