@@ -9,14 +9,17 @@ export const BurgerMenu = (props) => {
         setIsClosed((current) => !current);
     }
 
-    if(isClosed) return <button onClick={handleClick}>=</button>
+    if(isClosed) return<div> <button className="burger-button" onClick={handleClick}>=</button> </div>
     else
     return (
+        <div>
+            <button className="burger-button" onClick={handleClick}>=</button>
         <ul>
-            <li>
-                <button onClick={handleClick}>=</button>
-            </li>
-                {children}
-        </ul>
+                <li>
+                    
+                </li>
+                    {children}
+            </ul>
+        </div>
     )
 }
