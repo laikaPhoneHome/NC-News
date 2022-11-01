@@ -29,7 +29,7 @@ export const Header = () => {
                 const { slug, description } = topic;
                 return (
                 <Link to={`/articles/${slug}`}>
-                    <h3 className="topic" key={slug}>{slug}</h3>
+                    <h3 className="topic" key={slug}>{slug}<span>{description}</span></h3>
                 </Link>
                 )
             })}
