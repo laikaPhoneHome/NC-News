@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import { CurrentUser } from "./Cards/CurrentUser";
 import * as API from '../Api';
 
@@ -27,7 +28,9 @@ export const Header = () => {
             {topics.map(topic => {
                 const { slug, description } = topic;
                 return (
-                <h3 className="topic" key={slug}>{slug}</h3>
+                <Link to={`/articles/${slug}`}>
+                    <h3 className="topic" key={slug}>{slug}<span>{description}</span></h3>
+                </Link>
                 )
             })}
             <h3>|</h3>
