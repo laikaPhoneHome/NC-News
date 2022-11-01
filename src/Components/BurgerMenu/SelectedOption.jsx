@@ -1,3 +1,4 @@
-export const SelectedOption = ({value}) => {
-    return <h2>{value}</h2>
+export const SelectedOption = ({value:{slug, description}}) => {
+    
+    return <h2>{slug}</h2>
 }

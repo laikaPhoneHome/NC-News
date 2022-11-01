@@ -30,20 +30,22 @@ export const Header = () => {
             <ul className="topic-list">
             {topics.map((topic, i) => {
                 const { slug, description } = topic;
-                i < 6 ? (
+                if(i < 2){ return (
                 <Link to={`/articles/${slug}`}>
                     <h3 className="topic" key={slug}>{slug}<span>{description}</span></h3>
                 </Link>
                 )
-                : (
-                <div>
-                    <SelectedOption value={chosenTopic} />
-                    <BurgerMenu>
-                        <Link to={`/articles/${slug}`}>
-                            <Option value={topic} />
-                        </Link>
-                    </BurgerMenu>
-                </div>
+                } else return(
+                <section>
+                    <div className="burger-menu">
+                        <SelectedOption value={topic} />
+                        <BurgerMenu className="burger-dropdown">
+                           <Link to={`/articles/${slug}`}>
+                                <Option value={topic} />
+                            </Link>
+                        </BurgerMenu>
+                    </div>
+                </section>
                 )
             })}
             <h3>|</h3>
