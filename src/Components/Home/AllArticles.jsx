@@ -26,8 +26,9 @@ export const AllArticles = () => {
     <ul className="all-articles">
         {
         articles.map(article => {
-            return <ArticlesCard className="article-card" key={article.article_id} article={article}/>
-    })}
+            <Link to={`/article/${article.article_id}`}>
+                return <ArticlesCard className="article-card" key={article.article_id} article={article}/>
+    })}     </Link>
     </ul>
     )
     
