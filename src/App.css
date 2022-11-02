@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-bottom: 8vh;
 }
 a{
   color: rgb(152, 152, 255);
@@ -48,19 +49,26 @@ li{
 }
 .header{
   border: dotted;
+  margin-bottom: 8vh;
 }
 .header-top{
   display:flex;
   justify-content: space-between;
   flex-direction: row;
+  /* position:fixed; */
+  background-color: white;
+  width: 100%;
+  border-bottom: solid rgb(152, 152, 255);
 }
 .header-bottom{
+  /* margin-top: 4.5em; */
   display:flex;
   border: dotted;
   justify-content: space-between;
   flex-direction: row;
   box-sizing: content-box;
   align-items: center;
+  border-top: none;
 }
 .topic-list{
   display:flex;
@@ -94,44 +102,61 @@ li{
   color: rgb(152, 152, 255);
 }
 .author-card{
+  color:rgb(152, 152, 255);
+  font-size: 150%;
   display:flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
-  width: 50%;
+  width: 80%;
   margin:auto;
-  align-items: center;
+  margin-left: 15%;
+  align-items:flex-start;
   text-align: center;
   margin-top: 5vw;
-  background-color: rgb(200, 200, 200);
-  padding: 1vw;
-  padding-left: 3vw;
-  padding-right: 3vw;
   margin-bottom: 5vw;;
 }
 .author-image{
   display: inline-block; 
-  position: relative; 
-  width: 6vw; 
-  height: 6vw; 
-  overflow: hidden; 
+  position: relative;
+  width:10em;
+  height:10em;
+  overflow: hidden;
+  margin-right: 6vw;
   border-radius: 50%;
+  object-fit:contain 10%;
 }
 .single-article{
+  border: solid rgb(152, 152, 255);
   width: 75%;
   margin:auto;
+  margin-top: 7vh;
   align-items: center;
   text-align: right;
   text-indent: 4vw;
   margin-top: 0%;
-  height: 100%;
+  height:fit-content;
   padding: 3vw;
-}
-.single-article p {
-  text-align: left;
-  text-indent: 0;
 }
 .single-article h2{
   text-align: center;
+  text-indent: 0;
+}
+.single-article p {
+  text-indent: 0;
+}
+.article-body{
+  text-align: left;
+  text-indent: 0;
+}
+.article-info{
+  margin-right: 10%;
+  text-align: right;
+  color:rgb(159, 159, 159);
+}
+.article-votes{
+  margin-right: 10%;
+  text-align: right;
+  color:rgb(152, 152, 255);
 }
 .voter{
   width: 10%;
@@ -149,13 +174,20 @@ li{
   height:inherit;
 }
 
-.vote-up:active,
-.vote-down:active{
+.vote-up,
+.vote-down{
   fill:rgb(152, 152, 255)
 }
+.vote-up:active{
+  fill: rgb(0, 172, 0);
+}
+.vote-down:active{
+  fill: red;
+}
+
 .thumb-button{
   background-color: rgba(0,0,0,0);
   border: none;
-  height: 4vw;
+  height: 3.5vh;
   margin-bottom: 0.5vh;
 }
