@@ -31,8 +31,8 @@ export const fetchUserByUsername = (username) => {
         return data;
     })
 }
-export const patchArticleVotes = (vote, article_id) => {
-    return NewsAPI.patch(`/articles/${article_id}`, { inc_votes: vote})
+export const patchVotes = (vote, pathAndId) => {
+    return NewsAPI.patch(`/${article_id}`, { inc_votes: vote})
     .then(({data}) => {
         return data;
     })
