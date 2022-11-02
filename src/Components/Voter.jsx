@@ -8,69 +8,6 @@ export const Voter  = ({votes, target, setVotes}) => {
 
     const handleChange = (input) => {
 
-        // vote > 0 || vote < 0 ?
-        // setVote((Vote) => Vote *= -1)
-        // : setVote(event.target.value)
-
-
-        // if(vote === input){
-        //     setVote((current) => current *= -1)
-        //     console.log(vote, 'unvote')
-        // }else if(vote !== 0 && vote !== input){
-        //     setVote((current) => current *= -1)
-        //     console.log(vote, 'vote opposite')
-        // } else if(vote === 0) {
-        //     setVote(input)
-        //     console.log(vote, 'vote from none')
-        // }
-        // setVotes((current) => current + vote)
-
-        // vote === 0 ? 
-        // setVote(() => input)
-        // : setVote((vote) => -input);
-
-        // if(input === -1){
-        //     console.log(input, 'input in if')
-        //     console.log(votes, 'votes in if')
-        //     if(vote === 0){
-        //         console.log('add downvote v')
-        //         setVote(-1)
-        //         setVotes((current) => current -1)
-        //     }
-        //     else if(vote === -1){
-        //         console.log('remove downvote ^')
-        //         setVote(1)
-        //         setVotes((current) => current + 1)
-        //     }
-        //     else if(vote === 1){ 
-        //         console.log('remove downvote and upvote ^^')
-        //         setVote(-2)
-        //         setVotes((current) => current - 2)
-        //     }
-        // }
-        // if(input === 1){
-        //     console.log(input, 'input in if')
-        //     if(vote === 0){
-        //         console.log('add upvote ^')
-        //         console.log(votes)
-        //         setVote(1)
-        //         setVotes((current) => current + vote)
-        //     }
-        //     else if(vote === 1){
-        //         console.log('takeaway upvote v')
-        //         console.log(votes)
-        //         setVote(-1)
-        //         setVotes((current) => current - vote)
-        //     }
-        //     else if(vote === -1){
-        //         console.log('takeaway upvote and downvote vv')
-        //         console.log(votes)
-        //         setVote(2)
-        //         setVotes((current) => current + 2)
-        //     }
-        // }
-
-        console.log('*******',renderCount, '*******')
         if(thumb === 'none'){
             if(input === 1){
                 setThumb('up');
@@ -105,10 +42,6 @@ export const Voter  = ({votes, target, setVotes}) => {
     }
         useEffect(() => {
             setVotes((curr) => curr + vote);
-            console.log(votes, 'current vote')
-            console.log(thumb)
-            console.log('api request')
-            console.log("VOTE IS SET TO ", vote)
             setRenderCount((curr) => curr + 1)
             target.article_id ?
             API.patchVotes(vote,`articles/${target.article_id}`)
