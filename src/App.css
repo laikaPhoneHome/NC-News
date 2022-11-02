@@ -34,8 +34,10 @@ li{
   list-style: none;
 }
 .article-card{
+  padding-top: 1.5vw;
   border-style: none;
   width:27vw;
+  height:35vh;
   background: rgb(228, 228, 228);
   margin-left: 3vw;
   margin-bottom: 3vw;
@@ -90,6 +92,46 @@ li{
 }
 .divider{
   color: rgb(152, 152, 255);
+}
+.author-card{
+  display:flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 50%;
+  margin:auto;
+  align-items: center;
+  text-align: center;
+  margin-top: 5vw;
+  background-color: rgb(200, 200, 200);
+  padding: 1vw;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  margin-bottom: 5vw;;
+}
+.author-image{
+  display: inline-block; 
+  position: relative; 
+  width: 6vw; 
+  height: 6vw; 
+  overflow: hidden; 
+  border-radius: 50%;
+}
+.single-article{
+  width: 75%;
+  margin:auto;
+  align-items: center;
+  text-align: right;
+  text-indent: 4vw;
+  margin-top: 0%;
+  height: 100%;
+  padding: 3vw;
+}
+.single-article p {
+  text-align: left;
+  text-indent: 0;
+}
+.single-article h2{
+  text-align: center;
 }
 
 

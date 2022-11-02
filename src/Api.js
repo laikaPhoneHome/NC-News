@@ -19,3 +19,15 @@ export const fetchTopics = () => {
         return data;
     })
 }
+export const fetchArticleById = (article_id) => {
+    return NewsAPI.get(`/articles/${article_id}`)
+    .then(({data}) => {
+        return data;
+    })
+}
+export const fetchUserByUsername = (username) => {
+    return NewsAPI.get(`/users/${username}`)
+    .then(({data}) => {
+        return data;
+    })
+}

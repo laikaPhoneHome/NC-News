@@ -1,16 +1,8 @@
 import { Header } from "../Header"
-<<<<<<< HEAD
-
-export const TopicArticles = () => {
-    return (
-    <div>
-        <Header />
-        <
-    </div>
-=======
 import { ArticlesCard } from "../Cards/ArticlesCard";
 import { useEffect, useState } from "react";
 import * as API from '../../Api'
+import { Link } from 'react-router-dom'
 
 
 
@@ -27,8 +19,6 @@ export const TopicArticles = ({topic}) => {
             setIsLoading(false);
         })
     },[topic])
-    console.log(articles)
-    
 
     if(isLoading) return <h2>Loading ...</h2>
     else
@@ -38,9 +28,12 @@ export const TopicArticles = ({topic}) => {
     <ul className="all-articles">
         {
         articles.map(article => {
-            return <ArticlesCard className="article-card" key={article.article_id} article={article}/>
+            return (
+                <Link to={`/article/${article.article_id}`}>
+                    <ArticlesCard className="article-card" key={article.article_id} article={article}/>
+                </Link>
+            )
     })}
     </ul>
->>>>>>> 7c1b23215db433fd12f53945f148afdbb87df3d7
     )
 }
