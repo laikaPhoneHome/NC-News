@@ -2,29 +2,33 @@ import { convertTimestampToDate } from "../../Utils/Utils"
 import { AuthorCard } from "./AuthorCard"
 import * as API from '../../Api'
 import { useState, useEffect } from "react"
+import { Voter } from "../Voter"
 export const SingleArticle = ({article}) => {
     const {title, topic, author, body, created_at, votes} = article
 
-    const [user, setUser] = useState(author)
+    const [user, setUser] = useState(null)
+    const [articleAuthor, setArticleAuthor] = useState(author);
+    const [displayVotes, setDisplayVotes] = useState(votes)
+
 
     useEffect(() => {
-        API.fetchUserByUsername(user)
+        API.fetchUserByUsername(articleAuthor)
         .then(({user}) => {
             setUser(user);
         })
-    },[user])
+    },[articleAuthor])
 
     const timeStamp = convertTimestampToDate(created_at)
     const {created: {date, time}} = timeStamp;
-
     return (
-        <article class="single-article">
-            <AuthorCard user={user}/>
+        <article className="single-article">
+            {user === null ? <div></div> : <AuthorCard user={user}/>}
             <h2>{title}</h2>
             <p>{topic}</p>
             <p>{body}</p>
             <p>{time} {date}</p>
-            <p>votes: {votes}</p>
+            <p>Votes: {displayVotes}</p>
+            <Voter target={article} setVotes={setDisplayVotes} votes={displayVotes}/>
         </article>
     )
 }

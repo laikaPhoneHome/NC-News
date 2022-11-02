@@ -1,5 +1,5 @@
 import { Header } from "../Header";
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { TopicArticles } from "./TopicArticles";
 
 export const TopicsLanding = () => {
