@@ -245,20 +245,24 @@ li{
 
 /* comments -----> */
 
+
+.comment-container:hover{
+  right: 1%;
+  transition-duration: 1s;
+} 
+.comment-container{
+  width: 30%;
+  right: -20%;
+  top:30%;
+  transition-duration: 1s;
+  position:absolute;
+  height: 80%
+}
 .comment-list{
+  overflow-y:scroll;
   border-top:solid rgb(152, 152, 255);
   border-bottom: solid rgb(152, 152, 255);
-  width: 30%;
-  position:absolute;
-  top:30%;
-  right: -20%;
-  overflow-y:scroll;
-  height: 70%;
-  transition-duration: 1s;
-}
-.comment-list:hover{
-  right: 0%;
-  transition-duration: 1s;
+  height: 90%;
 }
 .comment-card{
   border: solid rgb(152, 152, 255);
@@ -271,3 +275,18 @@ li{
 .comment-voter{
   height: 1%;
 }
+.comment-input{
+  width: 96%;
+  margin:auto;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  height: 10%;
+  border:solid rgb(152, 152, 255);
+  margin-top: 4%;
+  outline: none;
+  padding: 2%;
+}
+.comment-label{
+  color:rgb(152, 152, 255);
+}
+
