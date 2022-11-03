@@ -54,10 +54,10 @@ export const TopicArticles = ({topic}) => {
                     <ArticlesCard className="article-card" key={article.article_id} article={article}/>
                 </Link>
     
-        }): articles.map(article => {
-            return <Link to={`/article/${article.article_id}`}>
-                <ArticlesCard className="article-card" key={article.article_id} article={article}/>
-            </Link>
+        })  : articles.map(article => {
+                return <Link to={`/article/${article.article_id}`}>
+                    <ArticlesCard className="article-card" key={article.article_id} article={article}/>
+                </Link>
         })}
     
         </ul>

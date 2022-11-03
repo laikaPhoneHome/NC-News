@@ -29,7 +29,7 @@ exports.convertTimestampToDate = (created_atJS) => {
     }
   };
 
-exports. searchArticles = (param, articles) => {
+exports.searchArticles = (param, articles) => {
     let searchedArticles = [];
 
     searchedArticles = [...articles]
