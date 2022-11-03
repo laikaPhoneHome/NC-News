@@ -11,11 +11,6 @@ export const ArticleLandling = () => {
 
     const {article_id} = useParams();
 
-<<<<<<< HEAD
-
-    
-=======
->>>>>>> 707c35c88e559d2bfbb8624a466ec412207dd839
     useEffect(() => {
         setIsLoading(true)
         API.fetchArticleById(article_id)
@@ -25,11 +20,8 @@ export const ArticleLandling = () => {
         })
     },[])
 
-<<<<<<< HEAD
-=======
     
 
->>>>>>> 707c35c88e559d2bfbb8624a466ec412207dd839
     return (
     <div>
         <Header />
