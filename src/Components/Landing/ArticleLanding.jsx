@@ -24,7 +24,7 @@ export const ArticleLandling = () => {
     return (
     <div>
         <Header />
-        {isLoading ? <h2>Loading ...</h2> 
+        {isLoading ? <h2 className='user-feedback'>...</h2> 
         :<SingleArticle article={article} />}
         <div className="comments">
             <Comments article_id={article_id} />

@@ -10,7 +10,8 @@ export const AllArticles = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
-    const param = searchParams.get('search')
+    let param = searchParams.get('search')
+    if(param === null) param = window.location.href.split('=')[1]
 
     useEffect(() => {
         setIsLoading(true);
@@ -28,16 +29,17 @@ export const AllArticles = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        if(param !== undefined){
+        console.log(param)
+        if(!param){
             setTimeout(() => {
                 setIsLoading(false);
-            }, 500);
-        }
-        else setIsLoading(false)
-        
+            }, 100);
+        }else{
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 600);
+        }  
     },[param])
-
-    
     
     if (isLoading) return <h1 className='user-feedback'>...</h1>
     else

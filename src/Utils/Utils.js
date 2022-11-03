@@ -19,6 +19,13 @@ exports.convertTimestampToDate = (created_atJS) => {
     let min = stamp.getMinutes()
     let hour = stamp.getHours()
 
+    min+=''
+    if(min.length === 1){
+        min = min.split('');
+        min.unshift('0');
+        min = min.join('');
+    }
+    
     hour += `:${min}`;
 
     return {

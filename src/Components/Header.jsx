@@ -5,6 +5,7 @@ import * as API from '../Api';
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { SelectedOption } from "./BurgerMenu/SelectedOption";
 import { Option } from "./BurgerMenu/Option";
+import { useNavigate } from 'react-router-dom'
 
 
 export const Header = () => {
@@ -12,6 +13,7 @@ export const Header = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [input, setInput] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setIsLoading(true)
@@ -34,6 +36,10 @@ export const Header = () => {
             setSearchParams({search: input})
         }else
         setSearchParams({})
+        const url2Param = window.location.href.split('?')[0];
+        if(/[0-9]/g.test(url2Param[url2Param.length-1])){
+            navigate(`/?search=${input}`)
+        }
     }
 
     return (

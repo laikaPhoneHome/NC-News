@@ -154,8 +154,8 @@ li{
 .author-image{
   display: inline-block; 
   position: relative;
-  width:9em;
-  height:9em;
+  height:5%;
+  width:20%;
   overflow: hidden;
   margin-right: 6vw;
   border-radius: 50%;

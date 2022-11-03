@@ -34,7 +34,7 @@ export const TopicArticles = ({topic}) => {
         }else{
             setTimeout(() => {
                 setIsLoading(false);
-            }, 500);
+            }, 600);
         } 
         
         
