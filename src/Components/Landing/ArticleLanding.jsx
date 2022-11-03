@@ -4,6 +4,7 @@ import { Header } from "../Header"
 import * as API from '../../Api'
 import { useParams } from 'react-router-dom'
 import { useState } from "react"
+import { Comments } from "../Comments"
 
 export const ArticleLandling = () => {
     const [article, setArticle] = useState(null);
@@ -20,12 +21,15 @@ export const ArticleLandling = () => {
         })
     },[])
 
-    
-
     return (
     <div>
         <Header />
-        {isLoading ? <h2>Loading ...</h2> :<SingleArticle article={article} />}
+        {isLoading ? <h2>Loading ...</h2> 
+        :<SingleArticle article={article} />}
+        <div className="comments">
+            <Comments article_id={article_id} />
+        </div>
+
     </div>
     )
 }

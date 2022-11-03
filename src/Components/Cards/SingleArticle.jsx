@@ -28,7 +28,7 @@ export const SingleArticle = ({article}) => {
             <p className="article-body">{body}</p>
             <p className="article-info">{time} {date}</p>
             <p className="article-votes">Votes: {displayVotes}</p>
-            <Voter target={article} setVotes={setDisplayVotes} votes={displayVotes}/>
+            <Voter className="article-voter" target={article} setVotes={setDisplayVotes} votes={displayVotes}/>
         </article>
     )
 }

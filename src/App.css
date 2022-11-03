@@ -9,6 +9,9 @@ a{
   color: rgb(152, 152, 255);
   text-decoration: none;
 }
+
+/* burger -----> */
+
 .burger-menu{
   display:block;
 }
@@ -37,6 +40,9 @@ a{
 li{
   list-style: none;
 }
+
+/* article list -----> */
+
 .article-card{
   padding-top: 1.5vw;
   border-style: none;
@@ -50,6 +56,9 @@ li{
   display:flex;
   flex-wrap: wrap;
 }
+
+/* header -----> */
+
 .header{
   border: dotted;
   margin-bottom: 8vh;
@@ -63,6 +72,9 @@ li{
   width: 100%;
   border-bottom: solid rgb(152, 152, 255);
 }
+
+/* header botton  -----> */
+
 .header-bottom{
   /* margin-top: 4.5em; */
   display:flex;
@@ -104,6 +116,9 @@ li{
 .divider{
   color: rgb(152, 152, 255);
 }
+
+/* author -----> */
+
 .author-card{
   color:rgb(152, 152, 255);
   font-size: 150%;
@@ -118,27 +133,36 @@ li{
   margin-top: 5vw;
   margin-bottom: 5vw;;
 }
+.author-card h2{
+  margin-top: 2%;
+  margin-left: 2%;
+}
 .author-image{
   display: inline-block; 
   position: relative;
-  width:10em;
-  height:10em;
+  width:9em;
+  height:9em;
   overflow: hidden;
   margin-right: 6vw;
   border-radius: 50%;
   object-fit:contain 10%;
 }
+
+/* article -----> */
+
 .single-article{
   border: solid rgb(152, 152, 255);
-  width: 75%;
+  width: 70%;
   margin:auto;
-  margin-top: 7vh;
+  margin-top: 1%;
+  margin-right: 15%;
   align-items: center;
   text-align: right;
   text-indent: 4vw;
   margin-top: 0%;
   height:fit-content;
   padding: 3vw;
+  padding-top: 0%;
 }
 .single-article h2{
   text-align: center;
@@ -161,13 +185,16 @@ li{
   text-align: right;
   color:rgb(152, 152, 255);
 }
-.voter{
+.article-voter{
   width: 10%;
   margin: auto;
   display:flex;
   flex-direction: column;
   box-sizing: content-box;
 }
+
+/* voter -----> */
+
 .vote-down{
   transform: rotate(3.142rad);
   margin-top: 0.5vw;
@@ -193,4 +220,34 @@ li{
   border: none;
   height: 3.5vh;
   margin-bottom: 0.5vh;
+}
+
+/* comments -----> */
+
+.comment-list{
+  /* border:solid red; */
+  border-top:solid rgb(152, 152, 255);
+  border-bottom: solid rgb(152, 152, 255);
+  width: 30%;
+  position:absolute;
+  top:30%;
+  right: -20%;
+  overflow-y:scroll;
+  height: 70%;
+  transition-duration: 1s;
+}
+.comment-list:hover{
+  right: 0%;
+  transition-duration: 1s;
+}
+.comment-card{
+  border: solid rgb(152, 152, 255);
+  margin-bottom: 10%;
+  height: fit-content;
+  padding: 3%;
+  padding-bottom: 5%;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.comment-voter{
+  height: 1%;
 }

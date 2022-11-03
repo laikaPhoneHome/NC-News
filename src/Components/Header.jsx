@@ -33,7 +33,7 @@ export const Header = () => {
         if(input !== undefined){
             setSearchParams({search: input})
         }else
-            setSearchParams({})
+        setSearchParams({})
     }
 
     return (
