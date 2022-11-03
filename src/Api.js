@@ -49,3 +49,9 @@ export const postComment = ({article_id}) => {
         return data;
     })
 }
+export const fetchUsers = () => {
+    return NewsAPI.get('/users')
+    .then(({data}) => {
+        return data;
+    })
+}
