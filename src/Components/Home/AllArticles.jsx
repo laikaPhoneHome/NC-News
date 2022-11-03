@@ -1,7 +1,11 @@
 import * as API from '../../Api';
 import { useEffect, useState } from 'react';
 import { ArticlesCard } from '../Cards/ArticlesCard';
+<<<<<<< HEAD
 import { useSearchParams } from 'react-router-dom';
+=======
+import { Link } from 'react-router-dom'
+>>>>>>> 707c35c88e559d2bfbb8624a466ec412207dd839
 
 export const AllArticles = () => {
     const [articles, setArticles] = useState([]);
@@ -38,8 +42,10 @@ export const AllArticles = () => {
     <ul className="all-articles">
         {
         articles.map(article => {
-            return <ArticlesCard className="article-card" key={article.article_id} article={article}/>
-    })}
+            return <Link to={`/article/${article.article_id}`}>
+                <ArticlesCard className="article-card" key={article.article_id} article={article}/>
+            </Link>
+    })}     
     </ul>
     )
     
