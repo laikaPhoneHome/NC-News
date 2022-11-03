@@ -18,10 +18,13 @@ export const Comments = (article_id) => {
     
 
     return (
-    <section className="comment-list">
-        {comments.map(comment => {
-            return <CommentCard comment={comment}/>
-        })}
-    </section>
+        <div>
+            <input type='text'></input>
+            <section className="comment-list">
+                {comments.map(comment => {
+                    return <CommentCard comment={comment}/>
+                })}
+            </section>
+        </div>
     )
 }
