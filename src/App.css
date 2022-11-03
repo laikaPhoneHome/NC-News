@@ -106,10 +106,24 @@ li{
   background-color: rgba(255, 255, 255, 0.9);
 }
 .article-search{
-  padding: 0;
-  height: 2vw;
-  margin-right: 3vw;
+  border: solid grey;
+  height: 1.8em;
+  border-radius: 25px;
+  width: 15%;
+  text-indent: 5%;
+  margin-right: 14%;
+  /* transition-duration: 0.5s; */
+  border-color: solid rgb(152, 152, 255);
 }
+/* .article-search{
+  border: solid grey;
+  height: 1.8em;
+  border-radius: 25px;
+  width: 3.4%;
+  text-indent: 5%;
+  margin-right: 14%;
+} */
+
 .title{
   text-indent: 2vw;
 }
@@ -146,6 +160,13 @@ li{
   margin-right: 6vw;
   border-radius: 50%;
   object-fit:contain 10%;
+}
+
+/* home -----> */
+
+.user-feedback{
+  color: rgb(152, 152, 255);
+  margin-top: 12%;
 }
 
 /* article -----> */
@@ -225,7 +246,6 @@ li{
 /* comments -----> */
 
 .comment-list{
-  /* border:solid red; */
   border-top:solid rgb(152, 152, 255);
   border-bottom: solid rgb(152, 152, 255);
   width: 30%;
