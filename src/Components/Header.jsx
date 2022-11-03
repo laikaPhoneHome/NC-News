@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { CurrentUser } from "./Cards/CurrentUser";
 import * as API from '../Api';
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
@@ -10,6 +10,8 @@ import { Option } from "./BurgerMenu/Option";
 export const Header = () => {
     const [topics, setTopics] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [input, setInput] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
         setIsLoading(true)
@@ -19,6 +21,20 @@ export const Header = () => {
             setIsLoading(false);
         })
     },[])
+
+    const handleSearch = (event) => {
+        if(event.key === 'Enter') handleSubmit(input);
+        else{
+            const newInput = event.target.value;
+            setInput(newInput);
+        }
+    }
+    const handleSubmit = (input) => {
+        if(input !== undefined){
+            setSearchParams({search: input})
+        }else
+            setSearchParams({})
+    }
 
     return (
     <div className="header">
@@ -50,7 +66,7 @@ export const Header = () => {
             })}
             <h3 className="divider">|</h3>
             </ul>
-            <input className="article-search" placeholder="Search" type="text"/>
+            <input onKeyDown={handleSearch} onChange={handleSearch} className="article-search" placeholder="Search" type="text"/>
         </section>
     </div>
     

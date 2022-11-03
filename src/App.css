@@ -2,6 +2,9 @@
   text-align: center;
   padding-bottom: 8vh;
 }
+.App ::selection{
+  background: rgba(152, 152, 255, 0.30);
+}
 a{
   color: rgb(152, 152, 255);
   text-decoration: none;
