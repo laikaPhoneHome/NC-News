@@ -34,7 +34,6 @@ export const fetchUserByUsername = (username) => {
 export const patchVotes = (vote, pathAndId) => {
     return NewsAPI.patch(`/${pathAndId}`, {"inc_votes" : vote})
     .then(({data}) => {
-        console.log(data.article.votes, "___ API")
         return data;
     })
 }

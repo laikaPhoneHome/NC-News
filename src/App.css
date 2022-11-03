@@ -185,7 +185,7 @@ li{
   fill: rgb(0, 172, 0);
 }
 .vote-down:active{
-  fill: red;
+  fill: rgb(235, 28, 28);
 }
 
 .thumb-button{
