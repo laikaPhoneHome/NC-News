@@ -20,6 +20,8 @@ export const ArticleLandling = () => {
         })
     },[])
 
+    
+
     return (
     <div>
         <Header />
