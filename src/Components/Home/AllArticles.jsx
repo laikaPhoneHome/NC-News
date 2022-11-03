@@ -3,12 +3,14 @@ import { useEffect, useState } from 'react';
 import { ArticlesCard } from '../Cards/ArticlesCard';
 import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import { searchArticles } from '../../Utils/Utils';
 
 export const AllArticles = () => {
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
+    const param = searchParams.get('search')
 
     useEffect(() => {
         setIsLoading(true);
@@ -22,28 +24,7 @@ export const AllArticles = () => {
         })
     },[])
 
-    let searchedArticles = [];
-    const param = searchParams.get('search')
-
-    searchedArticles = [...articles]
-    param ?
-    searchedArticles = searchedArticles.filter(article => {
-        const titleSearch = article.title.toLowerCase().split(/\W/g);
-        const descriptionSearch = article.body.toLowerCase().split(/\W/g);;
-        const topicSearch = article.topic.toLowerCase();
-
-        return titleSearch.join('').includes(param.toLowerCase())
-        || descriptionSearch.includes(param.toLowerCase())
-        || topicSearch.includes(param.toLowerCase());
-    })
-    : searchedArticles = [null]
-
-    // if(param){
-    //     setIsLoading(true)
-    //     // setTimeout(() => {
-    //     //     setIsLoading(false);
-    //     // }, 10);
-    // }
+    const searchedArticles = searchArticles(param, articles);
     
     if (isLoading) return <h2>Loading ...</h2>
     else
@@ -63,6 +44,5 @@ export const AllArticles = () => {
     })}
 
     </ul>
-    
-    
-)}
+    )
+}

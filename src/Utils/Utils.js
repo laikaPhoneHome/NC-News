@@ -28,3 +28,22 @@ exports.convertTimestampToDate = (created_atJS) => {
         }
     }
   };
+
+exports. searchArticles = (param, articles) => {
+    let searchedArticles = [];
+
+    searchedArticles = [...articles]
+    param ?
+    searchedArticles = searchedArticles.filter(article => {
+        const titleSearch = article.title.toLowerCase().split(/\W/g);
+        const descriptionSearch = article.body.toLowerCase().split(/\W/g);;
+        const topicSearch = article.topic.toLowerCase();
+
+        return titleSearch.join('').includes(param.toLowerCase())
+        || descriptionSearch.includes(param.toLowerCase())
+        || topicSearch.includes(param.toLowerCase());
+    })
+    : searchedArticles = [null]
+
+    return searchedArticles;
+}
