@@ -37,6 +37,13 @@ export const AllArticles = () => {
         || topicSearch.includes(param.toLowerCase());
     })
     : searchedArticles = [null]
+
+    // if(param){
+    //     setIsLoading(true)
+    //     // setTimeout(() => {
+    //     //     setIsLoading(false);
+    //     // }, 10);
+    // }
     
     if (isLoading) return <h2>Loading ...</h2>
     else
