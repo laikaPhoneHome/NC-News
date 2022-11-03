@@ -1,4 +1,4 @@
-const LoginUserCard = ({user}) => {
+export const LoginUserCard = ({user}) => {
     const { username, name, avatar_url } = user;
     return (
         <section>

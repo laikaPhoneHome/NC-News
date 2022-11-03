@@ -6,6 +6,7 @@ import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { SelectedOption } from "./BurgerMenu/SelectedOption";
 import { Option } from "./BurgerMenu/Option";
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from "../Context/UserContext";
 
 
 export const Header = () => {
@@ -14,6 +15,7 @@ export const Header = () => {
     const [input, setInput] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
+    const { user } = UserContext();
 
     useEffect(() => {
         setIsLoading(true)
@@ -48,7 +50,7 @@ export const Header = () => {
             <Link to="/">
                 <h1 className="title">NC Leaks</h1>
             </Link>
-        <CurrentUser />
+        <CurrentUser user={user} />
         </section>
         <section className="header-bottom">
             <ul className="topic-list">

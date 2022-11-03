@@ -1,3 +1,4 @@
-export const CurrentUser = () => {
-    return <p>User</p>
+export const CurrentUser = ({user}) => {
+    const { avatar_url } = user;
+    return <img src={avatar_url}/>
 }
