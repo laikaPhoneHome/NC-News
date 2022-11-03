@@ -1,17 +1,15 @@
 import * as API from '../../Api';
 import { useEffect, useState } from 'react';
 import { ArticlesCard } from '../Cards/ArticlesCard';
-<<<<<<< HEAD
 import { useSearchParams } from 'react-router-dom';
-=======
 import { Link } from 'react-router-dom'
->>>>>>> 707c35c88e559d2bfbb8624a466ec412207dd839
 
 export const AllArticles = () => {
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
+    const [search, setSearch] = useState(searchParams.get('search'))
 
     useEffect(() => {
         setIsLoading(true);
@@ -25,13 +23,16 @@ export const AllArticles = () => {
         })
     },[])
 
-    const search = searchParams.get('search')
     let searchedArticles = [];
 
     searchedArticles = [...articles]
     searchedArticles = searchedArticles.filter(article => {
       return article.title.toLowerCase().split(/\W/g).includes(search.toLowerCase())
     })
+    
+    useEffect(() => {
+        setArticles(searchedArticles)
+    },[search])
 
     
     
