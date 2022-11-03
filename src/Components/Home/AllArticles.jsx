@@ -25,10 +25,25 @@ export const AllArticles = () => {
     },[])
 
     const searchedArticles = searchArticles(param, articles);
+
+    useEffect(() => {
+        setIsLoading(true)
+        if(param !== undefined){
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 500);
+        }
+        else setIsLoading(false)
+        
+    },[param])
+
     
-    if (isLoading) return <h2>Loading ...</h2>
+    
+    if (isLoading) return <h1 className='user-feedback'>...</h1>
     else
     if(err) return <h2>{err}</h2>
+    else
+    if(searchedArticles.length < 1) return <h1 className='user-feedback'>No Results</h1>
     return (
     <ul className="all-articles">
         {param ?

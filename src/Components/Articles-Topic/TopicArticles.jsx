@@ -24,9 +24,27 @@ export const TopicArticles = ({topic}) => {
 
     const searchedArticles = searchArticles(param, articles)
 
-    if(isLoading) return <h2>Loading ...</h2>
+    useEffect(() => {
+        setIsLoading(true)
+        console.log(param)
+        if(!param){
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 100);
+        }else{
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 500);
+        } 
+        
+        
+    },[param])
+
+    if (isLoading) return <h1 className='user-feedback'>...</h1>
     else
     if(err) return <h2>{err}</h2>
+    else
+    if(searchedArticles.length < 1) return <h1 className='user-feedback'>No Results</h1>
     else
     return (
         <ul className="all-articles">

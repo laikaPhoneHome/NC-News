@@ -162,6 +162,13 @@ li{
   object-fit:contain 10%;
 }
 
+/* home -----> */
+
+.user-feedback{
+  color: rgb(152, 152, 255);
+  margin-top: 12%;
+}
+
 /* article -----> */
 
 .single-article{
@@ -239,7 +246,6 @@ li{
 /* comments -----> */
 
 .comment-list{
-  /* border:solid red; */
   border-top:solid rgb(152, 152, 255);
   border-bottom: solid rgb(152, 152, 255);
   width: 30%;
