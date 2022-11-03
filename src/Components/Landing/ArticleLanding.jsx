@@ -4,7 +4,6 @@ import { Header } from "../Header"
 import * as API from '../../Api'
 import { useParams } from 'react-router-dom'
 import { useState } from "react"
-import { Voter } from "../Voter"
 
 export const ArticleLandling = () => {
     const [article, setArticle] = useState(null);
