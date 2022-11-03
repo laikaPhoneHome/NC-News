@@ -20,12 +20,12 @@ export const ArticleLandling = () => {
         })
     },[])
 
-    
-
     return (
     <div>
         <Header />
-        {isLoading ? <h2>Loading ...</h2> :<SingleArticle article={article} />}
+        {isLoading ? <h2>Loading ...</h2> 
+        :<SingleArticle article={article} />}
+
     </div>
     )
 }
