@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { CurrentUser } from "./Cards/CurrentUser";
 import * as API from '../Api';
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
@@ -11,7 +11,6 @@ export const Header = () => {
     const [topics, setTopics] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [input, setInput] = useState('');
-    const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
@@ -24,14 +23,17 @@ export const Header = () => {
     },[])
 
     const handleSearch = (event) => {
-        if(event.key === 'Enter' && input !== '') handleSubmit(input);
+        if(event.key === 'Enter') handleSubmit(input);
         else{
             const newInput = event.target.value;
             setInput(newInput);
         }
     }
     const handleSubmit = (input) => {
-        setSearchParams({search: input})
+        if(input !== undefined){
+            setSearchParams({search: input})
+        }else
+            setSearchParams({})
     }
 
     return (

@@ -1,4 +1,3 @@
-import { Header } from "../Header"
 import { ArticlesCard } from "../Cards/ArticlesCard";
 import { useEffect, useState } from "react";
 import * as API from '../../Api'

@@ -9,7 +9,6 @@ export const AllArticles = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
-    const [search, setSearch] = useState(searchParams.get('search'))
 
     useEffect(() => {
         setIsLoading(true);
@@ -24,30 +23,39 @@ export const AllArticles = () => {
     },[])
 
     let searchedArticles = [];
+    const param = searchParams.get('search')
 
     searchedArticles = [...articles]
+    param ?
     searchedArticles = searchedArticles.filter(article => {
-      return article.title.toLowerCase().split(/\W/g).includes(search.toLowerCase())
-    })
-    
-    useEffect(() => {
-        setArticles(searchedArticles)
-    },[search])
+        const titleSearch = article.title.toLowerCase().split(/\W/g);
+        const descriptionSearch = article.body.toLowerCase().split(/\W/g);;
+        const topicSearch = article.topic.toLowerCase();
 
-    
+        return titleSearch.join('').includes(param.toLowerCase())
+        || descriptionSearch.includes(param.toLowerCase())
+        || topicSearch.includes(param.toLowerCase());
+    })
+    : searchedArticles = [null]
     
     if (isLoading) return <h2>Loading ...</h2>
     else
     if(err) return <h2>{err}</h2>
     return (
     <ul className="all-articles">
-        {
-        articles.map(article => {
+        {param ?
+        searchedArticles.map(article => {
             return <Link to={`/article/${article.article_id}`}>
                 <ArticlesCard className="article-card" key={article.article_id} article={article}/>
             </Link>
-    })}     
+
+    }): articles.map(article => {
+        return <Link to={`/article/${article.article_id}`}>
+            <ArticlesCard className="article-card" key={article.article_id} article={article}/>
+        </Link>
+    })}
+
     </ul>
-    )
     
-}
+    
+)}
