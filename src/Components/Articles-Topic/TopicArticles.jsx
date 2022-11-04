@@ -26,9 +26,9 @@ export const TopicArticles = ({topic}) => {
 
     useEffect(() => {
         setIsLoading(true)
-        console.log(param)
         if(!param){
             setTimeout(() => {
+                setSearchParams({})
                 setIsLoading(false);
             }, 100);
         }else{

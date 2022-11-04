@@ -100,7 +100,7 @@ li{
 .topic:hover span{
   display: block;
   position: absolute;
-  z-index: 60;
+  top: 16%;
   padding:1vw;
   border: dotted rgb(152, 152, 255);
   background-color: rgba(255, 255, 255, 0.9);
@@ -111,7 +111,7 @@ li{
   border-radius: 25px;
   width: 15%;
   text-indent: 5%;
-  margin-right: 14%;
+  margin-right: 10%;
   /* transition-duration: 0.5s; */
   border-color: solid rgb(152, 152, 255);
 }
@@ -163,6 +163,14 @@ li{
 }
 
 /* home -----> */
+
+.topic{
+  color:rgb(152, 152, 255);
+  margin-bottom: 5%;
+  display: flex;
+  justify-self:flex-start;
+  margin-left: 10%;
+}
 
 .user-feedback{
   color: rgb(152, 152, 255);

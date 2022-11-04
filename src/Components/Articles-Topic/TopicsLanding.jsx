@@ -4,9 +4,12 @@ import { TopicArticles } from "./TopicArticles";
 
 export const TopicsLanding = () => {
     const { topic } = useParams();
+
+
     return (
         <div>
             <Header  />
+            <h3 className="topic">{topic}</h3>
             <TopicArticles topic={topic}/>
         </div>
     )
