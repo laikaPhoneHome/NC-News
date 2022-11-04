@@ -47,19 +47,32 @@ export const AllArticles = () => {
     else
     if(searchedArticles.length < 1) return <h1 className='user-feedback'>No Results</h1>
     return (
-    <ul className="all-articles">
-        {param ?
-        searchedArticles.map(article => {
+    <main>
+        <select>
+            <option>Order</option>
+            <option>asc</option>
+            <option>desc</option>
+        </select>
+        <select>
+            <option>Sort by:</option>
+            <option>Most popular</option>
+            <option>Date created</option>
+            <option>Author</option>
+        </select>
+        <ul className="all-articles">
+            {param ?
+            searchedArticles.map(article => {
+                return <Link to={`/article/${article.article_id}`}>
+                    <ArticlesCard className="article-card" key={article.article_id} article={article}/>
+                </Link>
+
+        }): articles.map(article => {
             return <Link to={`/article/${article.article_id}`}>
                 <ArticlesCard className="article-card" key={article.article_id} article={article}/>
             </Link>
+        })}
 
-    }): articles.map(article => {
-        return <Link to={`/article/${article.article_id}`}>
-            <ArticlesCard className="article-card" key={article.article_id} article={article}/>
-        </Link>
-    })}
-
-    </ul>
+        </ul>
+    </main>
     )
 }
