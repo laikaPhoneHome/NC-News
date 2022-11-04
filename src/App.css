@@ -9,6 +9,14 @@ a{
   color: rgb(152, 152, 255);
   text-decoration: none;
 }
+ul{
+  margin:0;
+  list-style: none;
+  padding:0;
+}
+li{
+  list-style: none;
+}
 
 /* burger -----> */
 
@@ -37,25 +45,32 @@ a{
   width:6vw;
   margin-right: 1vw;
 }
-li{
-  list-style: none;
-}
 
 /* article list -----> */
 
 .article-card{
-  padding-top: 1.5vw;
-  border-style: none;
-  width:27vw;
-  height:35vh;
-  background: rgb(228, 228, 228);
-  margin-left: 3vw;
-  margin-bottom: 3vw;
+  border:none;
+  background-color: rgb(242, 242, 242);
+  width: 27em;
+  height:17em;
+  margin-bottom: 20%;
+  padding:2%;
+}
+.article-card a{
+  height: 3em;
+}
+.article-card:hover{
+  margin-bottom: -1px;
+  border-bottom: solid rgb(152, 152, 255);
 }
 .all-articles{
   display:flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  justify-content: space-around;
+  padding-right: 1.5%;
 }
+
 
 /* header -----> */
 

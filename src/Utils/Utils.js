@@ -54,3 +54,4 @@ exports.searchArticles = (param, articles) => {
 
     return searchedArticles;
 }
+console.log(exports)
