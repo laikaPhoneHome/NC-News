@@ -30,6 +30,7 @@ export const AllArticles = () => {
     useEffect(() => {
         setIsLoading(true)
         if(!param){
+            setSearchParams({})
             setTimeout(() => {
                 setSearchParams({})
                 setIsLoading(false);
