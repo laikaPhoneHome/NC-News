@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useSearchParams } from 'react-router-dom';
 import { CurrentUser } from "./Cards/CurrentUser";
 import * as API from '../Api';
@@ -6,6 +6,7 @@ import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { SelectedOption } from "./BurgerMenu/SelectedOption";
 import { Option } from "./BurgerMenu/Option";
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from "../Context/UserContext";
 
 
 export const Header = () => {
@@ -14,6 +15,8 @@ export const Header = () => {
     const [input, setInput] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
+    const { currentUser, setCurrentUser } = useContext(UserContext);
+    
 
     useEffect(() => {
         setIsLoading(true)
@@ -45,10 +48,10 @@ export const Header = () => {
     return (
     <div className="header">
         <section className="header-top">
-            <Link to="/">
+            <Link to="/articles">
                 <h1 className="title">NC Leaks</h1>
             </Link>
-        <CurrentUser />
+        <CurrentUser user={CurrentUser} />
         </section>
         <section className="header-bottom">
             <ul className="topic-list">
