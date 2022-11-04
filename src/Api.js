@@ -43,9 +43,9 @@ export const fetchComments = (article_id) => {
         return data;
     })
 }
-export const postComment = (article_id) => {
+export const postComment = (article_id, comment) => {
     console.log('posting comment')
-    return NewsAPI.post(`/articles/${article_id}/comments`)
+    return NewsAPI.post(`/articles/${article_id}/comments`,comment)
     .then(({data}) => {
         console.log(data)
         return data;

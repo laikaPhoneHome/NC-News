@@ -19,29 +19,36 @@ export const Comments = ({article_id}) => {
         })
     },[])
 
-    const handleChange = (event) => {
-        const input = event.target.value;
-        setInput(input);
-        if(event.key === 'Enter') handleSubmit(input);
-    }
     const handleSubmit = (input) => {
-        setNewComment({username: currentUser.username, body: input})
+        setNewComment(input)
+    }
+
+    const handleChange = (event) => {
+        if(event.key === 'Enter') {
+            event.target.value =''
+            handleSubmit(input)
+        }
+        else{
+            const newInput = event.target.value;
+            setInput(newInput);
+        }
     }
 
     useEffect(() => {
-        API.postComment()
+        API.postComment(article_id,{username: currentUser.username, body: newComment})
         .then(({comment}) => {
+            console.log(comment)
             const newComments = [...comments];
             newComments.unshift(comment);
             setComments(newComments);
         })
-    },[])
+    },[newComment])
     
 
     return (
     <div className="comment-container">
         <label className="comment-label">Write a comment:</label>
-        <input onChange={handleChange} id="comment" className='comment-input' type="text"></input>
+        <input onKeyDown={(event) => handleChange(event)} onChange={(event) => handleChange(event)} placeholder="Something to say...?" id="comment" className='comment-input' type="text"></input>
         <section className="comment-list">
             {comments.map(comment => {
                 return <CommentCard comment={comment}/>
