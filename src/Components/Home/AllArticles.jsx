@@ -84,17 +84,19 @@ export const AllArticles = () => {
     if(searchedArticles.length < 1) return <h1 className='user-feedback'>No Results</h1>
     return (
     <main>
-        <select id="order" onChange={handleChange}>
+        <section className="dropdown">
+        <select className='order-dropdown' id="order" onChange={handleChange}>
             <option value="">{order}</option>
             {order === 'asc' ? <></> :<option value="ASC">asc</option>}
             {order === 'desc'? <></> :<option value="DESC">desc</option>}
         </select>
-        <select id="sort_by" onChange={handleChange}>
+        <select className='sort_by-dropdown' id="sort_by" onChange={handleChange}>
             <option value="">{sort_by}</option>
             {sort_by === 'Most popular' ? <></> :<option value="votes">Most popular</option>}
             {sort_by === 'Date created' ? <></> :<option value="created_at">Date created</option>}
             {sort_by === 'author' ? <></> :<option value="author">Author</option>}
         </select>
+        </section>
         <ul className="all-articles">
             {searchParam ?
             searchedArticles.map(article => {

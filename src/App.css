@@ -57,6 +57,21 @@ li{
   flex-wrap: wrap;
 }
 
+/* sort by and order ------> */
+.dropdown{
+  display:flex;
+  justify-content: flex-end;
+  box-sizing: content-box;
+  margin-bottom: 2%;
+}
+.sort_by-dropdown{
+  border: solid rgb(152, 152, 255);
+  margin-right: 20%;
+}
+.order-dropdown{
+  margin-right: 2%;
+  border: solid rgb(152, 152, 255);
+}
 /* header -----> */
 
 .header{
@@ -164,18 +179,20 @@ li{
 
 /* home -----> */
 
-.topic{
+.topic-title{
   color:rgb(152, 152, 255);
-  margin-bottom: 5%;
   display: flex;
   justify-self:flex-start;
-  margin-left: 10%;
+  margin-left: 11%;
+  position: absolute;
+  top: 23%;
 }
 
 .user-feedback{
   color: rgb(152, 152, 255);
   margin-top: 12%;
 }
+
 
 /* article -----> */
 
