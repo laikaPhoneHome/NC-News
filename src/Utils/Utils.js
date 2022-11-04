@@ -54,3 +54,18 @@ exports.searchArticles = (param, articles) => {
 
     return searchedArticles;
 }
+
+exports.createFetchQuery = (obj) => {
+    const arr= [];
+    for(let [key,value] of Object.entries(obj)){
+        if(obj[key] === null) delete obj[key] 
+        else
+        arr.push([key,value]);
+    };
+
+    let query = '';
+    arr.forEach((e,i) => {
+        i < 1 ? query += `?${e[0]}=${e[1]}` : query += `&${e[0]}=${e[1]}`;
+    })
+    return query;
+}

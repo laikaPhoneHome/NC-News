@@ -1,21 +1,29 @@
 import * as API from '../../Api';
 import { useEffect, useState } from 'react';
 import { ArticlesCard } from '../Cards/ArticlesCard';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { searchArticles } from '../../Utils/Utils';
+import { createFetchQuery } from '../../Utils/Utils';
 
 export const AllArticles = () => {
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [err, setErr] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
-    let param = searchParams.get('search')
-    if(param === null) param = window.location.href.split('=')[1]
+    const [orderParams, setOrderParams] = useSearchParams();
+    const [orderQuery, setOrderQuery] = useState('');
+    const [queryObj, setQueryObj] = useState({})
+    const [params, setParams] = useState({})
+
+    let searchParam = searchParams.getAll('search')[0]
+
+    if(searchParam === null) searchParam = window.location.href.split('=')[1]
+    const location = useLocation()
 
     useEffect(() => {
         setIsLoading(true);
-        API.fetchArticles()
+        API.fetchArticles(undefined, params)
         .then(({articles: {articles, total_count}}) => {
             setArticles(articles);
             setIsLoading(false);
@@ -23,16 +31,14 @@ export const AllArticles = () => {
         .catch((err) => {
             setErr(err)
         })
-    },[])
+    },[params])
 
-    const searchedArticles = searchArticles(param, articles);
-
+    const searchedArticles = searchArticles(searchParam, articles);
+    
     useEffect(() => {
         setIsLoading(true)
-        if(!param){
-            setSearchParams({})
+        if(!searchParam){
             setTimeout(() => {
-                setSearchParams({})
                 setIsLoading(false);
             }, 100);
         }else{
@@ -40,7 +46,36 @@ export const AllArticles = () => {
                 setIsLoading(false);
             }, 600);
         }  
-    },[param])
+    },[searchParam])
+
+    const handleChange = (event) => {
+
+        const newOrder = {...orderParams};
+
+        newOrder[event.target.id] = event.target.value;
+        setOrderParams((current) =>{
+            current[event.target.id] = event.target.value;
+        });
+        setParams({params : {...orderParams}})
+
+    }
+    let order = 'Order:';
+    let sort_by = 'Sort by:';
+    // console.log(params)
+    if(params.hasOwnProperty('params')){
+        if(params.params.hasOwnProperty('order')){
+            order = params.params.order.toLowerCase();
+        }
+        if(params.params.hasOwnProperty('sort_by')){
+            sort_by = params.params.sort_by;
+            if(sort_by === 'created_at'){
+                sort_by = 'Date created'
+            }
+            if(sort_by === 'votes'){
+                sort_by = 'Most popular'
+            }
+        }
+    }
     
     if (isLoading) return <h1 className='user-feedback'>...</h1>
     else
@@ -48,19 +83,34 @@ export const AllArticles = () => {
     else
     if(searchedArticles.length < 1) return <h1 className='user-feedback'>No Results</h1>
     return (
-    <ul className="all-articles">
-        {param ?
-        searchedArticles.map(article => {
+    <main>
+        <section className="dropdown">
+        <select className='order-dropdown' id="order" onChange={handleChange}>
+            <option value="">{order}</option>
+            {order === 'asc' ? <></> :<option value="ASC">asc</option>}
+            {order === 'desc'? <></> :<option value="DESC">desc</option>}
+        </select>
+        <select className='sort_by-dropdown' id="sort_by" onChange={handleChange}>
+            <option value="">{sort_by}</option>
+            {sort_by === 'Most popular' ? <></> :<option value="votes">Most popular</option>}
+            {sort_by === 'Date created' ? <></> :<option value="created_at">Date created</option>}
+            {sort_by === 'author' ? <></> :<option value="author">Author</option>}
+        </select>
+        </section>
+        <ul className="all-articles">
+            {searchParam ?
+            searchedArticles.map(article => {
+                return <Link to={`/article/${article.article_id}`}>
+                    <ArticlesCard className="article-card" key={article.article_id} article={article}/>
+                </Link>
+
+        }): articles.map(article => {
             return <Link to={`/article/${article.article_id}`}>
                 <ArticlesCard className="article-card" key={article.article_id} article={article}/>
             </Link>
+        })}
 
-    }): articles.map(article => {
-        return <Link to={`/article/${article.article_id}`}>
-            <ArticlesCard className="article-card" key={article.article_id} article={article}/>
-        </Link>
-    })}
-
-    </ul>
+        </ul>
+    </main>
     )
 }
