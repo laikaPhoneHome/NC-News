@@ -37,15 +37,17 @@ export const patchVotes = (vote, pathAndId) => {
         return data;
     })
 }
-export const fetchComments = ({article_id}) => {
+export const fetchComments = (article_id) => {
     return NewsAPI.get(`/articles/${article_id}/comments`)
     .then(({data}) => {
         return data;
     })
 }
-export const postComment = ({article_id}) => {
+export const postComment = (article_id) => {
+    console.log('posting comment')
     return NewsAPI.post(`/articles/${article_id}/comments`)
     .then(({data}) => {
+        console.log(data)
         return data;
     })
 }

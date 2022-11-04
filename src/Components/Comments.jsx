@@ -1,12 +1,14 @@
 import * as API from '../Api';
 import { CommentCard } from './Cards/CommentCard';
-import { useEffect, useState } from 'react';
-export const Comments = (article_id) => {
+import { useEffect, useState, useContext } from 'react';
+import { UserContext } from '../Context/UserContext';
+
+export const Comments = ({article_id}) => {
     const [comments, setComments] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [input, setInput] = useState('')
     const [newComment, setNewComment] = useState(null)
-
+    const { currentUser } = useContext(UserContext)
 
     useEffect(() => {
         setIsLoading(true)
@@ -23,7 +25,7 @@ export const Comments = (article_id) => {
         if(event.key === 'Enter') handleSubmit(input);
     }
     const handleSubmit = (input) => {
-        setComments()
+        setNewComment({username: currentUser.username, body: input})
     }
 
     useEffect(() => {
@@ -38,7 +40,7 @@ export const Comments = (article_id) => {
 
     return (
     <div className="comment-container">
-        <label className="comment-label" for="comment">Write a comment:</label>
+        <label className="comment-label">Write a comment:</label>
         <input onChange={handleChange} id="comment" className='comment-input' type="text"></input>
         <section className="comment-list">
             {comments.map(comment => {

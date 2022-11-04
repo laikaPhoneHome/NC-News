@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useSearchParams } from 'react-router-dom';
 import { CurrentUser } from "./Cards/CurrentUser";
 import * as API from '../Api';
@@ -15,7 +15,8 @@ export const Header = () => {
     const [input, setInput] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
-    const { user } = UserContext();
+    const { currentUser, setCurrentUser } = useContext(UserContext);
+    
 
     useEffect(() => {
         setIsLoading(true)
@@ -47,10 +48,10 @@ export const Header = () => {
     return (
     <div className="header">
         <section className="header-top">
-            <Link to="/">
+            <Link to="/articles">
                 <h1 className="title">NC Leaks</h1>
             </Link>
-        <CurrentUser user={user} />
+        <CurrentUser user={CurrentUser} />
         </section>
         <section className="header-bottom">
             <ul className="topic-list">

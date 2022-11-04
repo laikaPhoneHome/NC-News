@@ -5,25 +5,25 @@ import { TopicsLanding } from './Components/Articles-Topic/TopicsLanding'
 import { ArticleLandling } from './Components/Landing/ArticleLanding';
 import { Login } from './Components/Landing/Login';
 import { UserContext } from './Context/UserContext';
-
+import { useContext, useState } from 'react'
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(null);
   return (
     <div className="App">
       <BrowserRouter>
 
-      <UserContext.Provider value={ {user, setUser} }>
+      <UserContext.Provider value={ {currentUser, setCurrentUser} }>
 
         <Routes>
           <Route path='/article/:article_id' element={<ArticleLandling/>}/>
           <Route path='/articles/:topic' element={<TopicsLanding />}/>
-          <Route path='/articles' element={<Home />}/>
+          <Route path='/articles/' element={<Home />}/>
           <Route path='/' element={<Login />}/>
         </Routes>
       
       </UserContext.Provider>
-      
+
       </BrowserRouter>
     </div>
   );
