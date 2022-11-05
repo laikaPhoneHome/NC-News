@@ -5,21 +5,7 @@ const NewsAPI = axios.create({
 })
 
 export const fetchArticles = (topic, params) => {
-    if(params.hasOwnProperty('params')){
-        if(params.params.hasOwnProperty('order')){
-            params.params.order.toUpperCase();
-        }
-        if(params.params.hasOwnProperty('sort_by')){
-            let sort_by = params.params.sort_by;
-            if(sort_by === 'Date created'){
-                sort_by = 'created_at'
-            }
-            if(sort_by === 'Most popular'){
-                sort_by = 'votes'
-            }
-        }
-    }
-    if(topic)return NewsAPI.get(`/articles?topic=${topic}`,params)
+    if(topic)return NewsAPI.get(`/articles?topic=${topic}`, params)
     else
     return NewsAPI.get(`/articles`, params)
     .then(({data}) => {

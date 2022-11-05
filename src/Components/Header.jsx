@@ -56,23 +56,25 @@ export const Header = () => {
         <section className="header-bottom">
             <ul className="topic-list">
             {topics.map((topic, i) => {
-                const { slug, description } = topic;
-                if(i < 6){ return (
-                <Link to={`/articles/${slug}`}>
-                    <h3 className="topic" key={slug}>{slug}<span>{description}</span></h3>
+                    const { slug, description } = topic;
+                if(i < 6 )return <Link key={slug} to={`/articles/${slug}`}>
+                    <h3 className="topic"> {slug}<span>{description}</span></h3>
                 </Link>
-                )
-                } else return(
-                <section className="burger-menu">
-                        <SelectedOption value={topic} />
-                        <BurgerMenu className="burger-dropdown">
-                           <Link to={`/articles/${slug}`}>
-                                <Option className="burger-option" value={topic} />
-                            </Link>
-                        </BurgerMenu>
-                </section>
-                )
             })}
+            <section className="burger-menu">
+                {topics.length > 6 ? <BurgerMenu className="burger-dropdown">
+                {topics.map((topic, i) => {
+                    const { slug, description } = topic;
+                        if(i > 6) return (
+                                <Link to={`/articles/${slug}`}>
+                                    <Option className="burger-option" value={topic} />
+                                </Link>      
+                        )
+                
+            })}
+                </BurgerMenu> : <></> }
+            </section>
+            
             <h3 className="divider">|</h3>
             </ul>
             <input onKeyDown={handleSearch} onChange={handleSearch} className="article-search" placeholder="Search" type="text"/>

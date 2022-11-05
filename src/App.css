@@ -15,16 +15,22 @@ ul{
   padding:0;
 }
 li{
+  margin: none;
   list-style: none;
+}
+input:focus{
+  outline-color: rgba(152, 152, 255, 0.60);
 }
 
 /* Login ----> */
 .login-user-img{
   border-radius: 50%;
+  width:10em;
 }
 .login-card{
   border: dotted rgb(152, 152, 255);
-  padding:3%;
+  padding:2%;
+  padding-bottom: 1%;
   box-sizing: content-box;
   width:fit-content;
   margin:auto;
@@ -32,9 +38,13 @@ li{
 .login-title{
   margin-left: 2.21%;
   margin-top: 2.49%;
+  margin-bottom: 3em;
   display: flex;
   justify-self: flex-start;
   color:rgb(152, 152, 255);
+}
+.user-login{
+  color:rgba(152, 152, 255, 0.60);
 }
 
 /* burger -----> */
@@ -70,6 +80,7 @@ li{
 .article-card{
   border:none;
   background-color: rgb(242, 242, 242);
+  margin:auto;
   width: 27em;
   height:17em;
   margin-bottom: 20%;

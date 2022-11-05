@@ -12,14 +12,12 @@ export const AllArticles = () => {
     const [err, setErr] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
     const [orderParams, setOrderParams] = useSearchParams();
-    const [orderQuery, setOrderQuery] = useState('');
-    const [queryObj, setQueryObj] = useState({})
-    const [params, setParams] = useState({})
+    const [params, setParams] = useState({});
 
     let searchParam = searchParams.getAll('search')[0]
 
     if(searchParam === null) searchParam = window.location.href.split('=')[1]
-    const location = useLocation()
+    const location = useLocation();
 
     useEffect(() => {
         setIsLoading(true);
@@ -50,29 +48,27 @@ export const AllArticles = () => {
 
     const handleChange = (event) => {
 
-        const newOrder = {...orderParams};
-
-        newOrder[event.target.id] = event.target.value;
         setOrderParams((current) =>{
             current[event.target.id] = event.target.value;
         });
         setParams({params : {...orderParams}})
-
     }
+
     let order = 'Order:';
     let sort_by = 'Sort by:';
-    // console.log(params)
+
     if(params.hasOwnProperty('params')){
+        
         if(params.params.hasOwnProperty('order')){
-            order = params.params.order.toLowerCase();
+            params.params.order === 'DESC' ?
+            order = 'desc' : order = 'asc';
         }
         if(params.params.hasOwnProperty('sort_by')){
-            sort_by = params.params.sort_by;
-            if(sort_by === 'created_at'){
-                sort_by = 'Date created'
+            if(params.params.sort_by === 'created_at'){
+                sort_by = 'Date created';
             }
-            if(sort_by === 'votes'){
-                sort_by = 'Most popular'
+            if(params.params.sort_by === 'votes'){
+                sort_by = 'Most popular';
             }
         }
     }
@@ -84,6 +80,7 @@ export const AllArticles = () => {
     if(searchedArticles.length < 1) return <h1 className='user-feedback'>No Results</h1>
     return (
     <main>
+        <h3 className="topic-title">All Articles</h3>
         <section className="dropdown">
         <select className='order-dropdown' id="order" onChange={handleChange}>
             <option value="">{order}</option>
