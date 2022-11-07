@@ -46,7 +46,6 @@ export const Comments = ({article_id}) => {
             setComments(newComments);
         })
     },[newComment]);
-    
 
     return (
     <div className="comment-container">
@@ -54,7 +53,7 @@ export const Comments = ({article_id}) => {
         <input onKeyDown={(event) => handleChange(event)} onChange={(event) => handleChange(event)} placeholder="Something to say...?" id="comment" className='comment-input' type="text"></input>
         <section className="comment-list">
             {comments.map(comment => {
-                return <CommentCard key={comment.comment_id} comment={comment}/>
+                return <CommentCard comments={comments} setComments={setComments} key={comment.comment_id} comment={comment}/>
             })}
         </section>
     </div>

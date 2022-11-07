@@ -410,4 +410,22 @@ input:focus{
 .comment-votes{
   color:rgb(152, 152, 255);
 }
+.delete-comment{
+  color: rgb(152, 152, 255);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  cursor: pointer;
+  margin-bottom: 2px;
+  display: flex;
+  flex-flow: row;
+  position: absolute;
+}
+.delete-comment:hover{
+  background-color: rgba(152, 152, 255, 0.60);
+  color:white;
+}
+.delete-container{
+  position: relative;
+  margin-left: 0.3em;
+}
 
