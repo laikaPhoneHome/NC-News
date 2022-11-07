@@ -1,12 +1,19 @@
 import { convertTimestampToDate } from "../../Utils/Utils";
 import { Voter } from "../Voter";
 import { useState } from 'react'
+import * as API from '../../Api';
 
 export const CommentCard = ({comment}) => {
-    const {author, body, votes, created_at} = comment;
+    const {author, body, votes, created_at, comment_id} = comment;
     const stamp = convertTimestampToDate(created_at);
     const [displayVotes, setDisplayVotes] = useState(votes);
     const {created: {time, date}} = stamp;
+
+    const handleDelete = (event) => {
+        API.deleteComment(event.target.value)
+        .then(())
+    }
+
 
     return (
         <div className="comment-card">

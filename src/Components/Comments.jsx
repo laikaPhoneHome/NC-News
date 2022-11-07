@@ -46,7 +46,14 @@ export const Comments = ({article_id}) => {
             setComments(newComments);
         })
     },[newComment]);
-    
+
+    const handleDelete = (event) => {
+        const newComments = [...comments];
+        deleteI = newComments.indexOf(comment_id === event.target.value)
+        console.log(deleteI)
+        API.deleteComment(event.target.value)
+        .then(())
+    }
 
     return (
     <div className="comment-container">
@@ -54,7 +61,10 @@ export const Comments = ({article_id}) => {
         <input onKeyDown={(event) => handleChange(event)} onChange={(event) => handleChange(event)} placeholder="Something to say...?" id="comment" className='comment-input' type="text"></input>
         <section className="comment-list">
             {comments.map(comment => {
-                return <CommentCard key={comment.comment_id} comment={comment}/>
+                return <div key={comment.comment_id}>
+                    <button value={comment_id} onClick={handleDelete}>Delete</button>
+                <CommentCard comment={comment}/>
+                </div>
             })}
         </section>
     </div>

@@ -58,3 +58,9 @@ export const fetchUsers = () => {
         return data;
     })
 }
+export const  deleteComment = (comment_id) => {
+    return NewsAPI.delete(`/comments/${comment_id}`)
+    .then(({data}) => {
+        return data;
+    })
+}
