@@ -27,7 +27,7 @@ export const Login = () => {
             <h1 className='user-login'>Greetings Human</h1>
             <h3>Is this you?</h3>
             {users.map(user => {
-                return <Link key={user.user_id} onClick={() => setCurrentUser(user)} key={user.username} to="/articles">
+                return <Link key={user.user_id} onClick={() => setCurrentUser(user)} to="/articles">
                     <LoginUserCard user={user} />
                 </Link>
             })

@@ -96,12 +96,12 @@ export const TopicArticles = ({topic}) => {
             <ul className="all-articles">
                 {searchParam ?
                 searchedArticles.map(article => {
-                    return <Link to={`/article/${article.article_id}`}>
+                    return <Link key={article.article_id} to={`/article/${article.article_id}`}>
                         <ArticlesCard className="article-card" key={article.article_id} article={article}/>
                     </Link>
     
             }): articles.map(article => {
-                return <Link to={`/article/${article.article_id}`}>
+                return <Link key={article.article_id} to={`/article/${article.article_id}`}>
                     <ArticlesCard className="article-card" key={article.article_id} article={article}/>
                 </Link>
             })}

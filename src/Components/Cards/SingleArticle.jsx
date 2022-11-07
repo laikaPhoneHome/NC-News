@@ -23,12 +23,12 @@ export const SingleArticle = ({article}) => {
     return (
         <article className="single-article">
             {user === null ? <div></div> : <AuthorCard user={user}/>}
+            <Voter className="article-voter" target={article} setVotes={setDisplayVotes} votes={displayVotes}/>
             <h2>{title}</h2>
             <p className="article-info">{topic}</p>
             <p className="article-body">{body}</p>
             <p className="article-info">{time} {date}</p>
             <p className="article-votes">Votes: {displayVotes}</p>
-            <Voter className="article-voter" target={article} setVotes={setDisplayVotes} votes={displayVotes}/>
         </article>
     )
 }

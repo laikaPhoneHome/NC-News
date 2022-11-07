@@ -5,6 +5,7 @@ const NewsAPI = axios.create({
 })
 
 export const fetchArticles = (topic, params) => {
+    console.log(params)
     if(topic)return NewsAPI.get(`/articles?topic=${topic}`, params)
     else
     return NewsAPI.get(`/articles`, params)
@@ -31,6 +32,7 @@ export const fetchUserByUsername = (username) => {
     })
 }
 export const patchVotes = (vote, pathAndId) => {
+    if(vote === null) return Promise.reject();
     return NewsAPI.patch(`/${pathAndId}`, {"inc_votes" : vote})
     .then(({data}) => {
         return data;
@@ -43,7 +45,7 @@ export const fetchComments = (article_id) => {
     })
 }
 export const postComment = (article_id, comment) => {
-    console.log('posting comment')
+    if(comment.body === null) return Promise.reject();
     return NewsAPI.post(`/articles/${article_id}/comments`,comment)
     .then(({data}) => {
         console.log(data)

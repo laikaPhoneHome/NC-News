@@ -70,6 +70,9 @@ export const AllArticles = () => {
             if(params.params.sort_by === 'votes'){
                 sort_by = 'Most popular';
             }
+            if(params.params.sort_by === 'author'){
+                sort_by = 'Author';
+            }
         }
     }
     
@@ -91,18 +94,18 @@ export const AllArticles = () => {
             <option value="">{sort_by}</option>
             {sort_by === 'Most popular' ? <></> :<option value="votes">Most popular</option>}
             {sort_by === 'Date created' ? <></> :<option value="created_at">Date created</option>}
-            {sort_by === 'author' ? <></> :<option value="author">Author</option>}
+            {sort_by === 'Author' ? <></> :<option value="author">Author</option>}
         </select>
         </section>
         <ul className="all-articles">
             {searchParam ?
             searchedArticles.map(article => {
-                return <Link to={`/article/${article.article_id}`}>
+                return <Link key={article.article_id} to={`/article/${article.article_id}`}>
                     <ArticlesCard className="article-card" key={article.article_id} article={article}/>
                 </Link>
 
         }): articles.map(article => {
-            return <Link to={`/article/${article.article_id}`}>
+            return <Link key={article.article_id} to={`/article/${article.article_id}`}>
                 <ArticlesCard className="article-card" key={article.article_id} article={article}/>
             </Link>
         })}

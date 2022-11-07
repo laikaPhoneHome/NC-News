@@ -58,7 +58,7 @@ export const Header = () => {
             {topics.map((topic, i) => {
                     const { slug, description } = topic;
                 if(i < 6 )return <Link key={slug} to={`/articles/${slug}`}>
-                    <h3 className="topic"> {slug}<span>{description}</span></h3>
+                    <h3 className="topic"> {slug.charAt(0).toUpperCase() + slug.slice(1)}<span>{description}</span></h3>
                 </Link>
             })}
             <section className="burger-menu">
@@ -66,7 +66,7 @@ export const Header = () => {
                 {topics.map((topic, i) => {
                     const { slug, description } = topic;
                         if(i > 6) return (
-                                <Link to={`/articles/${slug}`}>
+                                <Link key={slug} to={`/articles/${slug}`}>
                                     <Option className="burger-option" value={topic} />
                                 </Link>      
                         )

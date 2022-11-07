@@ -6,7 +6,7 @@
   background: rgba(152, 152, 255, 0.30);
 }
 a{
-  color: rgb(152, 152, 255);
+  /* color: rgb(152, 152, 255); */
   text-decoration: none;
 }
 ul{
@@ -34,6 +34,7 @@ input:focus{
   box-sizing: content-box;
   width:fit-content;
   margin:auto;
+  color: rgb(152, 152, 255);
 }
 .login-title{
   margin-left: 2.21%;
@@ -83,22 +84,24 @@ input:focus{
   margin:auto;
   width: 27em;
   height:17em;
-  margin-bottom: 20%;
+  margin-bottom: 65px;
+  margin-right: 2em;
   padding:2%;
+  color: black;
 }
 .article-card a{
   height: 3em;
 }
 .article-card:hover{
-  margin-bottom: -1px;
+  margin-bottom: 64px;
   border-bottom: solid rgb(152, 152, 255);
 }
 .all-articles{
+  padding: 1.5em;
   display:flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-right: 1.5%;
 }
 
 /* sort by and order ------> */
@@ -122,6 +125,7 @@ input:focus{
 .header{
   border: dotted;
   margin-bottom: 90px;
+  color: rgba(152, 152, 255, 0.30);
 }
 .header-top{
   display:flex;
@@ -129,7 +133,7 @@ input:focus{
   align-items: center;
   flex-direction: row;
   /* position:fixed; */
-  background-color: white;
+  background: linear-gradient(to right, white, rgb(152, 152, 255));
   width: 100%;
   border-bottom: solid rgb(152, 152, 255);
 }
@@ -160,13 +164,14 @@ input:focus{
   display:flex;
   justify-content: flex-start;
   margin: 0;
-  justify-content: center;
+  justify-content: baseline;
 }
 .topic{
   margin-right: 1vw;
 }
 .topic span {
   display: none;
+  color: rgb(152, 152, 255);
 }
 .topic:hover span{
   display: block;
@@ -174,7 +179,7 @@ input:focus{
   top: 16%;
   padding:1vw;
   border: dotted rgb(152, 152, 255);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 .article-search{
   border: solid grey;
@@ -194,43 +199,16 @@ input:focus{
   text-indent: 5%;
   margin-right: 14%;
 } */
-
-.title{
-  text-indent: 2vw;
-}
-.divider{
+.topic-list a{
   color: rgb(152, 152, 255);
 }
 
-/* author -----> */
-
-.author-card{
-  color:rgb(152, 152, 255);
-  font-size: 150%;
-  display:flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 80%;
-  margin:auto;
-  margin-left: 15%;
-  align-items:flex-start;
-  text-align: center;
-  margin-top: 5vw;
-  margin-bottom: 5vw;;
+.title{
+  text-indent: 2vw;
+  color: rgb(152, 152, 255);
 }
-.author-card h2{
-  margin-top: 2%;
-  margin-left: 2%;
-}
-.author-image{
-  display: inline-block; 
-  position: relative;
-  height:5%;
-  width:20%;
-  overflow: hidden;
-  margin-right: 6vw;
-  border-radius: 50%;
-  object-fit:cover;
+.divider{
+  color: rgb(152, 152, 255);
 }
 
 /* home -----> */
@@ -253,9 +231,8 @@ input:focus{
 /* article -----> */
 
 .single-article{
-  border: solid rgb(152, 152, 255);
-  width: 70%;
-  margin:auto;
+  /* border: solid rgb(152, 152, 255); */
+  width: 60%;
   margin-top: 1%;
   margin-right: 15%;
   align-items: center;
@@ -269,6 +246,7 @@ input:focus{
 .single-article h2{
   text-align: center;
   text-indent: 0;
+  margin-top: 2em;
 }
 .single-article p {
   text-indent: 0;
@@ -289,14 +267,45 @@ input:focus{
 }
 .article-voter{
   width: 10%;
-  margin: auto;
-  display:flex;
-  flex-direction: column;
   box-sizing: content-box;
+  margin-bottom: 40px;
+}
+
+/* author -----> */
+
+.author-card{
+  color:rgb(152, 152, 255);
+  font-size: 150%;
+  display:flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 80%;
+  margin:auto;
+  margin-left: 15%;
+  align-items:flex-start;
+  text-align: center;
+  margin-top: 5vw;
+}
+.author-card h2{
+  margin-top: 2%;
+  margin-left: 2%;
+}
+.author-image{
+  display: inline-block; 
+  position: relative;
+  height:5%;
+  width:20%;
+  overflow: hidden;
+  margin-right: 6vw;
+  border-radius: 50%;
+  object-fit:cover;
 }
 
 /* voter -----> */
-
+.voter{
+  justify-content: center;
+  display: flex;
+}
 .vote-down{
   transform: rotate(3.142rad);
   margin-top: 0.5vw;
@@ -327,17 +336,17 @@ input:focus{
 /* comments -----> */
 
 
-.comment-container:hover{
+/* .comment-container:hover{
   right: 1%;
-  /* transition-duration: 1s; */
-} 
+  transition-duration: 1s;
+} */
+
 .comment-container{
   width: 30%;
-  right: -20%;
-  top:30%;
-  /* transition-duration: 1s; */
+  top:33%;
+  right: 1.5em;
   position:absolute;
-  height: 80%
+  height: 60%
 }
 .comment-list{
   overflow-y:scroll;
@@ -357,17 +366,22 @@ input:focus{
   height: 1%;
 }
 .comment-input{
+  white-space: normal;
+  word-wrap: break-word;
   width: 96%;
   margin:auto;
+  height:fit-content;
   margin-bottom: 5%;
   border-radius: 10px;
-  height: 10%;
   border:solid rgb(152, 152, 255);
   margin-top: 4%;
   outline: none;
   padding: 2%;
 }
 .comment-label{
+  color:rgb(152, 152, 255);
+}
+.comment-votes{
   color:rgb(152, 152, 255);
 }
 

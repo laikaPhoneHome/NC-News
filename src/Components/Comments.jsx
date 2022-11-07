@@ -6,27 +6,27 @@ import { UserContext } from '../Context/UserContext';
 export const Comments = ({article_id}) => {
     const [comments, setComments] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [input, setInput] = useState('')
-    const [newComment, setNewComment] = useState(null)
-    const { currentUser } = useContext(UserContext)
+    const [input, setInput] = useState('');
+    const [newComment, setNewComment] = useState(null);
+    const { currentUser } = useContext(UserContext);
 
     useEffect(() => {
         setIsLoading(true)
         API.fetchComments(article_id)
         .then(({comments}) => {
             setIsLoading(false);
-            setComments(comments)
+            setComments(comments);
         })
-    },[])
+    },[article_id]);
 
     const handleSubmit = (input) => {
-        setNewComment(input)
+        setNewComment(input);
     }
 
     const handleChange = (event) => {
         if(event.key === 'Enter') {
-            event.target.value =''
-            handleSubmit(input)
+            event.target.value = '';
+            handleSubmit(input);
         }
         else{
             const newInput = event.target.value;
@@ -35,14 +35,17 @@ export const Comments = ({article_id}) => {
     }
 
     useEffect(() => {
+        if(newComment === null) return;
+        else
+        setInput('')
         API.postComment(article_id,{username: currentUser.username, body: newComment})
         .then(({comment}) => {
-            console.log(comment)
+            setNewComment(null)
             const newComments = [...comments];
             newComments.unshift(comment);
             setComments(newComments);
         })
-    },[newComment])
+    },[newComment]);
     
 
     return (
@@ -51,7 +54,7 @@ export const Comments = ({article_id}) => {
         <input onKeyDown={(event) => handleChange(event)} onChange={(event) => handleChange(event)} placeholder="Something to say...?" id="comment" className='comment-input' type="text"></input>
         <section className="comment-list">
             {comments.map(comment => {
-                return <CommentCard comment={comment}/>
+                return <CommentCard key={comment.comment_id} comment={comment}/>
             })}
         </section>
     </div>
