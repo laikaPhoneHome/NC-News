@@ -47,34 +47,13 @@ export const Comments = ({article_id}) => {
         })
     },[newComment]);
 
-    const handleDelete = (event) => {
-        const id = event.target.value
-        const newComments = [...comments];
-        const deleteI = newComments.findIndex(comment => comment.comment_id == id);
-        const comment = newComments.splice(deleteI, 1);
-        setComments(newComments);
-        API.deleteComment(id)
-        .then(({data}) => {
-        })
-        .catch((err)=> {
-            if(err) {
-                const newComments = [...comments];
-                newComments.splice(deleteI, 0, comment);
-                setComments(newComments);
-            }
-        })
-    }
-
     return (
     <div className="comment-container">
         <label className="comment-label">Write a comment:</label>
         <input onKeyDown={(event) => handleChange(event)} onChange={(event) => handleChange(event)} placeholder="Something to say...?" id="comment" className='comment-input' type="text"></input>
         <section className="comment-list">
             {comments.map(comment => {
-                return <div key={comment.comment_id}>
-                    <button value={comment.comment_id} onClick={handleDelete}>Delete</button>
-                <CommentCard comment={comment}/>
-                </div>
+                return <CommentCard comments={comments} setComments={setComments} key={comment.comment_id} comment={comment}/>
             })}
         </section>
     </div>
