@@ -48,11 +48,21 @@ export const Comments = ({article_id}) => {
     },[newComment]);
 
     const handleDelete = (event) => {
+        const id = event.target.value
         const newComments = [...comments];
-        deleteI = newComments.indexOf(comment_id === event.target.value)
-        console.log(deleteI)
-        API.deleteComment(event.target.value)
-        .then(())
+        const deleteI = newComments.findIndex(comment => comment.comment_id == id);
+        const comment = newComments.splice(deleteI, 1);
+        setComments(newComments);
+        API.deleteComment(id)
+        .then(({data}) => {
+        })
+        .catch((err)=> {
+            if(err) {
+                const newComments = [...comments];
+                newComments.splice(deleteI, 0, comment);
+                setComments(newComments);
+            }
+        })
     }
 
     return (
@@ -62,7 +72,7 @@ export const Comments = ({article_id}) => {
         <section className="comment-list">
             {comments.map(comment => {
                 return <div key={comment.comment_id}>
-                    <button value={comment_id} onClick={handleDelete}>Delete</button>
+                    <button value={comment.comment_id} onClick={handleDelete}>Delete</button>
                 <CommentCard comment={comment}/>
                 </div>
             })}

@@ -9,12 +9,6 @@ export const CommentCard = ({comment}) => {
     const [displayVotes, setDisplayVotes] = useState(votes);
     const {created: {time, date}} = stamp;
 
-    const handleDelete = (event) => {
-        API.deleteComment(event.target.value)
-        .then(())
-    }
-
-
     return (
         <div className="comment-card">
             <h3>{author}</h3>
