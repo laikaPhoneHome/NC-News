@@ -302,6 +302,13 @@ input:focus{
 }
 
 /* voter -----> */
+.full-voter{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
 .voter{
   justify-content: center;
   display: flex;
@@ -332,6 +339,22 @@ input:focus{
   height: 3.5vh;
   margin-bottom: 0.5vh;
 }
+
+.thumb-down{
+  color:rgb(235, 28, 28);
+}
+.thumb-up{
+  color: rgb(0, 172, 0);
+}
+.thumb-null{
+  color: rgb(152, 152, 255);
+}
+.thumb-down p,
+.thumb-up p,
+.thumb-null p{
+  margin: none;
+}
+
 
 /* comments -----> */
 
@@ -364,6 +387,9 @@ input:focus{
 }
 .comment-voter{
   height: 1%;
+}
+.comment-voter > .full-voter span{
+  display: none;
 }
 .comment-input{
   white-space: normal;

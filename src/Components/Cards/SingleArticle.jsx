@@ -28,7 +28,7 @@ export const SingleArticle = ({article}) => {
             <p className="article-info">{topic}</p>
             <p className="article-body">{body}</p>
             <p className="article-info">{time} {date}</p>
-            <p className="article-votes">Votes: {displayVotes}</p>
+            {/* <p className="article-votes">Votes: {displayVotes}</p> */}
         </article>
     )
 }

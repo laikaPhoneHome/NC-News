@@ -13,8 +13,10 @@ export const CommentCard = ({comment}) => {
             <h3>{author}</h3>
             <p>{body}</p>
             <p>created at: {time} {date}</p>
-            <p className='comment-votes'>{displayVotes}</p>
-            <Voter className="comment-voter" target={comment} votes={displayVotes} setVotes={setDisplayVotes} />
+            {/* <p className='comment-votes'>{displayVotes}</p> */}
+            <div className="comment-voter">
+            <Voter  target={comment} votes={displayVotes} setVotes={setDisplayVotes} />
+            </div>
         </div>
     )
 }
